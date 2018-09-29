@@ -15,6 +15,7 @@
 		EA0200B4215F84A000655990 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0200B3215F84A000655990 /* main.m */; };
 		EA0200BE215F84F100655990 /* TestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0200BA215F84F000655990 /* TestTableView.m */; };
 		EA0200BF215F84F100655990 /* TestCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0200BC215F84F000655990 /* TestCollectionView.m */; };
+		EA0200C1215F86C100655990 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EA0200C0215F86C100655990 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EA0200BB215F84F000655990 /* TestTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableView.h; sourceTree = "<group>"; };
 		EA0200BC215F84F000655990 /* TestCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionView.m; sourceTree = "<group>"; };
 		EA0200BD215F84F000655990 /* TestCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionView.h; sourceTree = "<group>"; };
+		EA0200C0215F86C100655990 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				EA0200AF215F84A000655990 /* LaunchScreen.storyboard */,
 				EA0200B2215F84A000655990 /* Info.plist */,
 				EA0200B3215F84A000655990 /* main.m */,
+				EA0200C0215F86C100655990 /* README.md */,
 			);
 			path = TestVisibleCells;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				EA0200B1215F84A000655990 /* LaunchScreen.storyboard in Resources */,
 				EA0200AE215F84A000655990 /* Assets.xcassets in Resources */,
+				EA0200C1215F86C100655990 /* README.md in Resources */,
 				EA0200AC215F849E00655990 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
