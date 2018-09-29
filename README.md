@@ -114,7 +114,7 @@ NSLog(@"visibleCells==== :%@",@(array.count));
 
 两次visibleCells方法都返回了正确的cells数据。这是为何？进一步查看visibleCells前后调用堆栈信息：
 
-![ss](http://or5n398vd.bkt.clouddn.com/tableView.visibleCells.jpg)
+![tableView.visibleCells](https://github.com/yu0winter/TestVisibleCells/tableView.visibleCells.jpg)
 
 ```
 -[UITableView _createPreparedCellForGlobalRow:withIndexPath:willDisplay:]
@@ -192,7 +192,7 @@ NSLog(@"visibleCells===%@",@([self.collectionView visibleCells].count));
 
 #### 进一步打印 cellforRow方法的调用栈如下
 
-![UICollectionView.loadCells](http://or5n398vd.bkt.clouddn.com/UICollectionView.loadCells.png)
+![UICollectionView.loadCells](https://github.com/yu0winter/TestVisibleCells/UICollectionView.loadCells.png)
 
 总归是和UITableView有了相似，创建Cell视图前，也执行前缀为createPreparedCell的方法
 ```
