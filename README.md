@@ -11,8 +11,8 @@
 [self.tableView reloadData];
 // 切换到主队列
 dispatch_async(dispatch_get_main_queue(), ^{
-NSArray *array = [self.tableView visibleCells];
-NSLog(@"visibleCells====:%@",@(array.count));
+    NSArray *array = [self.tableView visibleCells];
+    NSLog(@"visibleCells====:%@",@(array.count));
 });
 ```
 
@@ -21,8 +21,8 @@ NSLog(@"visibleCells====:%@",@(array.count));
 ### 首先确认ReloadData的异步性。执行测试代码：
 ```
 - (void)testTableView {
-[self.tableView reloadData];
-NSLog(@"reloadData 执行完成");
+    [self.tableView reloadData];
+    NSLog(@"reloadData 执行完成");
 }
 ```
 监听reloadData执行前后，并同时监听RunLoop时机：
@@ -72,16 +72,16 @@ reloadData 方法内部，执行了高度计算，但没有进行Cell的渲染�
 ```
 - (void)testTableView {
 
-[self.tableView reloadData];
-NSLog(@"reloadData 执行完成");
+    [self.tableView reloadData];
+    NSLog(@"reloadData 执行完成");
 
-NSArray *array = [self.tableView visibleCells];
-NSLog(@"visibleCells----:%@",@(array.count));
+    NSArray *array = [self.tableView visibleCells];
+    NSLog(@"visibleCells----:%@",@(array.count));
 
-dispatch_async(dispatch_get_main_queue(), ^{
-NSArray *array = [self.tableView visibleCells];
-NSLog(@"visibleCells==== :%@",@(array.count));
-});
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *array = [self.tableView visibleCells];
+        NSLog(@"visibleCells==== :%@",@(array.count));
+    });
 }
 
 ```
@@ -114,7 +114,7 @@ NSLog(@"visibleCells==== :%@",@(array.count));
 
 两次visibleCells方法都返回了正确的cells数据。这是为何？进一步查看visibleCells前后调用堆栈信息：
 
-![tableView.visibleCells](tableView.visibleCells.jpg)
+![tableView.visibleCells](http://or5n398vd.bkt.clouddn.com/tableView.visibleCells.jpg)
 
 ```
 -[UITableView _createPreparedCellForGlobalRow:withIndexPath:willDisplay:]
@@ -148,14 +148,14 @@ Don't talk(bb),show you the code!
 ```
 - (void)testCollectionView {
 
-[self.collectionView reloadData];
-NSLog(@"[self.collectionView reloadData];");
+    [self.collectionView reloadData];
+    NSLog(@"[self.collectionView reloadData];");
 
-NSLog(@"visibleCells---%@",@([self.collectionView visibleCells].count));
+    NSLog(@"visibleCells---%@",@([self.collectionView visibleCells].count));
 
-dispatch_async(dispatch_get_main_queue(), ^{
-NSLog(@"visibleCells===%@",@([self.collectionView visibleCells].count));
-});
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"visibleCells===%@",@([self.collectionView visibleCells].count));
+    });
 }
 ```
 
@@ -192,7 +192,7 @@ NSLog(@"visibleCells===%@",@([self.collectionView visibleCells].count));
 
 #### 进一步打印 cellforRow方法的调用栈如下
 
-![UICollectionView.loadCells](UICollectionView.loadCells.png)
+![UICollectionView.loadCells](http://or5n398vd.bkt.clouddn.com/UICollectionView.loadCells.png)
 
 总归是和UITableView有了相似，创建Cell视图前，也执行前缀为createPreparedCell的方法
 ```
@@ -226,16 +226,15 @@ NSLog(@"visibleCells===%@",@([self.collectionView visibleCells].count));
 NSArray *tableViewVisibleCells = [self.tableView visibleCells];
 //  问题1：tableViewVisibleCells 是否正确？
 
-
 for (UITableViewCell *cell in tableViewVisibleCells) {
 // cell 上加载内容的视图，对应可能是CollectionView
-UIView *view = cell.realContentView;
-if ([view isKindOfClass:[UICollectionView class]]) {
+    UIView *view = cell.realContentView;
+    if ([view isKindOfClass:[UICollectionView class]]) {
 
-UICollectionView *collectionView = (UICollectionView *)view;
-NSArray *array = [collectionView visibleCells];
-// 问题2：array 获取是否正确呢？
-}
+    UICollectionView *collectionView = (UICollectionView *)view;
+    NSArray *array = [collectionView visibleCells];
+    // 问题2：array 获取是否正确呢？
+    }
 }
 ```
 
