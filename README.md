@@ -114,7 +114,7 @@ reloadData 方法内部，执行了高度计算，但没有进行Cell的渲染�
 
 两次visibleCells方法都返回了正确的cells数据。这是为何？进一步查看visibleCells前后调用堆栈信息：
 
-![tableView.visibleCells](http://or5n398vd.bkt.clouddn.com/tableView.visibleCells.jpg)
+![tableView.visibleCells](https://upload-images.jianshu.io/upload_images/1642774-fa8f45bbf32415c9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/950)
 
 ```
 -[UITableView _createPreparedCellForGlobalRow:withIndexPath:willDisplay:]
@@ -192,7 +192,7 @@ Don't talk(bb),show you the code!
 
 #### 进一步打印 cellforRow方法的调用栈如下
 
-![UICollectionView.loadCells](http://or5n398vd.bkt.clouddn.com/UICollectionView.loadCells.png)
+![UICollectionView.loadCells](https://upload-images.jianshu.io/upload_images/1642774-41abbc8701bc2a41.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
 
 总归是和UITableView有了相似，创建Cell视图前，也执行前缀为createPreparedCell的方法
 ```
